@@ -2,5 +2,6 @@
 {
     public class StudentsIndexViewModel
     {
+        public List<string > Students { get; set; }
     }
 }

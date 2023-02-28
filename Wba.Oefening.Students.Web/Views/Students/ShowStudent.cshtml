@@ -1,0 +1,15 @@
+﻿@model StudentsShowStudentViewModel
+@{
+    ViewData["Title"] = "ShowStudent";
+}
+
+<h1>@Model.Name</h1>
+
+<ul class="list-inline">
+    @foreach(string course in Model.Courses)
+    {
+        <li class="list-inline-item">@course</li>
+    }
+</ul>
+
+

@@ -21,9 +21,21 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapControllerRoute(
+    name: "studentDetails",
+    pattern: "Students/{studentid}",
+    defaults: new { controller = "Students", action = "ShowStudent" }
+    );
+
+app.MapControllerRoute(
     name: "courseDetails",
     pattern: "Courses/{courseid}/Students",
     defaults: new { controller = "Courses",action = "Details" }
+    );
+
+app.MapControllerRoute(
+    name: "teacherDetails",
+    pattern: "Teachers/{teacherid}",
+    defaults: new { controller = "Teachers", action = "Details" }
     );
 
 app.MapControllerRoute(

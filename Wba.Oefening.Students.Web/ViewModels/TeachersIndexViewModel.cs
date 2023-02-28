@@ -2,5 +2,6 @@
 {
     public class TeachersIndexViewModel
     {
+        public IEnumerable<string> Teachers { get; set; }
     }
 }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Wba.Oefening.Students.Web.Models;
 using Wba.Oefening.Students.Core;
+using Wba.Oefening.Students.Web.ViewModels;
 
 namespace Wba.Oefening.Students.Web.Controllers
 {
@@ -24,10 +25,30 @@ namespace Wba.Oefening.Students.Web.Controllers
 
         public IActionResult Index()
         {
-           
-            return View();
+            TeachersIndexViewModel model = new TeachersIndexViewModel();
+
+            model.Teachers = _teacherRepository.Teachers.Select(x =>
+            x.FirstName + " " + x.LastName);
+
+            return View(model);
         }
 
-      
+        public IActionResult Details(int teacherid)
+        {
+            // initialize view model
+            TeachersDetailsViewModel model = new TeachersDetailsViewModel();
+
+            // get domain model
+            var teacher = _teacherRepository.GetTeacherById(teacherid);
+
+            // map domain model to viewmodel
+            model.Name = teacher.FirstName + "" + teacher.LastName;
+            model.Courses = teacher.Courses.Select(x => x.Name);
+
+            // return view with our viewmodel
+            return View(model);
+        }
+
+
     }
 }
