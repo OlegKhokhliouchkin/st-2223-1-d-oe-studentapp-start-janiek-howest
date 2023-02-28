@@ -1,0 +1,15 @@
+﻿@model CoursesIndexViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Courses</h1>
+
+<ul class="list-group">
+    @foreach(string course in Model.Courses)
+    {
+        <li class="list-group-item">@course</li>
+    }
+
+</ul>
+

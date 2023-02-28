@@ -1,0 +1,14 @@
+﻿@model Wba.Oefening.Students.Web.ViewModels.CoursesDetailsViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>@Model.CourseName</h1>
+
+<ul class="list-inline">
+    @foreach(string student in Model.Students)
+    {
+        <li class="list-inline-item">@student</li>
+    }
+</ul>
